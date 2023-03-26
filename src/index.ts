@@ -1,8 +1,10 @@
-import { PrismaClient } from '@prisma/client'
-import express from 'express'
+// import { PrismaClient } from '@prisma/client'
+const {PrismaClient}=require("@prisma/client")
+import {Express} from 'express'
+const express=require("express")
 
 const prisma = new PrismaClient()
-const app = express()
+const app: Express = express()
 
 app.use(express.json())
 
