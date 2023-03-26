@@ -1,12 +1,16 @@
-// import { PrismaClient } from '@prisma/client'
-const {PrismaClient}=require("@prisma/client")
-import {Express} from 'express'
-const express=require("express")
+import { PrismaClient } from '@prisma/client'
+import express from 'express'
 
 const prisma = new PrismaClient()
-const app: Express = express()
+const app = express()
 
 app.use(express.json())
+
+app.get('/', async (req,res) => {
+    res.status(200).json({
+      message: "Hello, Student !",
+    })
+  })
 
 app.get('/users', async (req, res) => {
     const users = await prisma.user.findMany()
